@@ -13,10 +13,10 @@ public class Customer extends Thread {
     public void run() {
         Random random = new Random();
 
-        while (this.queue.isNotOver()) {
+        while (this.queue.isInProcess()) {
             this.queue.getItem();
             try {
-                Thread.sleep(random.nextInt(100)); // Simulate processing time
+                Thread.sleep(random.nextInt(123)); // Simulate processing time
             } catch (InterruptedException ignored) {
             }
 

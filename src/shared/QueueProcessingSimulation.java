@@ -25,7 +25,7 @@ public class QueueProcessingSimulation implements Callable<Result> {
 
         Thread thread = new Thread(new Runnable() {
             public void run() {
-                while (queue.isNotOver()) {
+                while (queue.isInProcess()) {
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {

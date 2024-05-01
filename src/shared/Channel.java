@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Channel extends Thread {
 
-    private final static int MAX_TIME = 10_000;
+    private final static int MAX_TIME = 5_000;
     private final ServiceQueue serviceQueue;
 
     Channel(ServiceQueue queue) {
@@ -18,7 +18,7 @@ public class Channel extends Thread {
         long elapsedTime = 0;
 
         while (elapsedTime < MAX_TIME) {
-            this.serviceQueue.addItem(random.nextInt(445));
+            this.serviceQueue.addItem(random.nextInt(1234));
 
             try {
                 Thread.sleep(random.nextInt(15)); // Imitating data processing

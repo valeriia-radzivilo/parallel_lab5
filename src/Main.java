@@ -1,5 +1,3 @@
-package task1;
-
 import shared.QueueProcessingSimulation;
 import shared.Result;
 
@@ -12,7 +10,7 @@ public class Main {
     static final int SIMULATION_COUNT = 5;
     static final int QUEUE_SIZE = 100;
 
-    static final boolean SHOW_CRITICAL_VALUES = true;
+    static final boolean SHOW_CRITICAL_VALUES = false;
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
@@ -23,7 +21,7 @@ public class Main {
         }
         List<Future<Result>> results = executor.invokeAll(simulations);
         executor.shutdown();
-        
+
         double avrageQueueSize = 0;
         double failuresCount = 0;
 
