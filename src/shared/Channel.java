@@ -21,7 +21,7 @@ public class Channel extends Thread {
             this.serviceQueue.addItem(random.nextInt(445));
 
             try {
-                Thread.sleep(random.nextInt(23)); // Imitating data processing
+                Thread.sleep(random.nextInt(15)); // Imitating data processing
             } catch (InterruptedException ignored) {
             }
 

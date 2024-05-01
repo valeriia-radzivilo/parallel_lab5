@@ -52,7 +52,7 @@ public class ServiceQueue {
         notifyAll();
     }
 
-    public synchronized void getItem() {
+    public synchronized int getItem() {
         this.queuesSizes.add(this.queue.size());
         while (this.queue.isEmpty()) {
             try {
@@ -60,7 +60,7 @@ public class ServiceQueue {
             } catch (InterruptedException ignored) {
             }
         }
-        this.queue.poll();
+        return this.queue.poll();
     }
 
     public double rejectedPossibility() {

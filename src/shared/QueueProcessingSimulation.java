@@ -23,14 +23,17 @@ public class QueueProcessingSimulation implements Callable<Result> {
             executor.execute(new Customer(queue));
         }
 
-        Thread thread = new Thread(() -> {
-            while (queue.isNotOver()) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                while (queue.isNotOver()) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                    }
+                    if (showCriticalValues)
+                        System.out.println("VALUES: queue length: " + queue.length() + " - rejected possibility: " + queue.rejectedPossibility());
+
                 }
-                if (showCriticalValues)
-                    System.out.println("VALUES: queue length: " + queue.length() + " - rejected possibility: " + queue.rejectedPossibility());
             }
         });
         executor.execute(thread);
