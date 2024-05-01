@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Channel extends Thread {
 
-    private final static int MAX_TIME = 5_000;
+    private final static int MAX_TIME = 50_000;
     private final ServiceQueue serviceQueue;
 
     Channel(ServiceQueue queue) {
